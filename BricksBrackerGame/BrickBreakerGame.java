@@ -297,14 +297,19 @@ public class BrickBreakerGame extends JPanel implements ActionListener, KeyListe
                 requestFocus();
             } else {
                 // All levels completed
-                playing = false;
-                levelComboBox.setVisible(true); // Show level selection menu
-                startButton.setVisible(true); // Show start button
-                restartButton.setVisible(true); // Show restart button
-                pauseButton.setEnabled(false); // Disable pause button
-                timer.stop();
+              winGame();
             }
         }
+    }
+   
+    private void winGame() {
+        playing = false;
+        levelComboBox.setVisible(true); // Show level selection menu
+        startButton.setVisible(true); // Show start button
+        restartButton.setVisible(true); // Show restart button
+        pauseButton.setEnabled(false); // Disable pause button
+        resumeButton.setEnabled(false); // Disable resume button
+        JOptionPane.showMessageDialog(this, "Congratulations! You win!", "You Win", JOptionPane.INFORMATION_MESSAGE);
     }
     
     private boolean isLevelComplete() {
